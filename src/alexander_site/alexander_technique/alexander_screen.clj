@@ -9,22 +9,25 @@
 
 ;;;; View
 
+;; Screens render entire pages
+
 (defn content [props]
+  "Alexander Technique Screen content"
   (ui/html
     (let [link "https://www.amsatonline.org"]
      [:div.alexander-technique-screen
-      [:div.question
-       [:h3 (::what-is-it props)]
-       [:p (::answer-what props)]]
-      [:div.question
-       [:h3 (::why-study-it props)]
-       [:p (::answer-why props)]
-       [:p (::answer-why-long props)]
-       [:p
-        [:span (::link-sentence-pt1 props)]
-        [:a {:href link :target "_blank"}
-         (::link-text props)]
-        [:span (::link-sentence-pt2 props)]]]])))
+       [:div.question
+         [:h3 (::what-is-it props)]
+         [:p (::answer-what props)]]
+       [:div.question
+         [:h3 (::why-study-it props)]
+         [:p (::answer-why props)]
+         [:p (::answer-why-long props)]
+         [:p
+          [:span (::link-sentence-pt1 props)]
+          [:a {:href link :target "_blank"}
+            (::link-text props)]
+          [:span (::link-sentence-pt2 props)]]]])))
 
 
 (def strings
@@ -59,16 +62,16 @@
    ::link-text "AmSat"
    ::link-sentence-pt2 " for more information on the Alexander Technique!"})
 
-(defstyles styles
-  [:div.alexander-technique-screen
+(def styles
+  [[:div.alexander-technique-screen
    [:div.question {:padding-bottom "30px"}
     [:h3 {:padding-bottom "5px"}]
-    [:p {:padding-bottom "15px"}]]])
-
+    [:p {:padding-bottom "15px"}]]]])
 
 ;;;; Controller
 
 (defn handler [req]
+  "Exported Alexander Technique Screen"
   (-> req
       (screen/render content strings)
       rr/response

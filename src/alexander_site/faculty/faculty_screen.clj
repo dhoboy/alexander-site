@@ -8,19 +8,28 @@
 
 ;;;; View
 
+;; Screens render entire pages
+
 ;; TODO: Responsive styles, adding photos, favicon
+;; TODO: Handle the dark/light color theme stuff built in
 
 (defn content [props]
+  "Faculty Screen content"
   (ui/html
    [:div.faculty-screen
-    [:h3 (::garnett props)]
-    [:div.garnett-photo]
-    [:h3 (::lydia props)]]))
+     [:h3 (::garnett props)]
+     [:div.entry
+       [:div.bio-photo.garnett]
+       [:p (::garnett-blurb props)]]
+     [:h3 (::lydia props)]
+     [:div.entry
+       [:div.bio-photo.lydia]
+       [:p (::lydia-blurb props)]]]))
 
 (def strings
   {::html.doc.title.fragment "Faculty"
    ::garnett "Garnett Mellen"
-   ::garnet-blurb (str "Garnett is an ACE Personal Trainer and teaches Yoga, "
+   ::garnett-blurb (str "Garnett is an ACE Personal Trainer and teaches Yoga, "
                        "Pilates, Qigong and American Waltz. People who strive "
                        "for vigor, strength and robust health find her training "
                        "sessions both enlivening, while they quiet the nervous "
@@ -33,12 +42,26 @@
    ::lydia "Lydia von Briesen"
    ::lydia-blurb "Lydia teaches Alexander and Yoga..."})
 
-(defstyles styles
-  [:.garnett-photo {:background-image "url(/s/garnett.jpeg)"}])
+(def styles
+  [[:div.faculty-screen
+    [:h3 {:padding-bottom "5px"}]
+    [:.entry {:display "grid"
+              :grid-template-columns "300px 1fr"
+              :padding-bottom "75px"}
+      [:.bio-photo
+        {:height "400px"
+         :border-radius "4px"
+         :background-size "cover"
+         :background-position "50%"}]
+      [:.garnett {:background-image "url(/s/garnett.jpeg)"}]
+      [:.lydia {:background-image "url(/s/lydia.jpeg)"}]
+      [:p {:padding-left "25px"}]]]
+   ["div.faculty-screen > div:last-child" {:padding-bottom "0px"}]])
 
 ;;;; Controller
 
 (defn handler [req]
+  "Exported Faculty screen"
   (-> req
       (screen/render content strings)
       rr/response

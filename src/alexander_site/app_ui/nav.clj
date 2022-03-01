@@ -11,36 +11,41 @@
 
 ;;;; View
 
+;; Components are parts used on Screens
+
+(defn li-nav-item
+  "Renders out a nav item"
+  [{:keys [href active display]}]
+    [:li
+      [:a {:href href
+           :class (when (= active href) "active")}
+        display]])
+
 (defn content [props]
-  (let [home "/home"
-        alexander "/alexander-technique"
-        faculty "/faculty"
-        contact "/contact"
-        current (:req/uri props)]
+  "nav component content"
+  (let [active (:req/uri props)]
     (ui/html
-     [:ul.nav ;; me: what benefit does this being a ul with li's wrapping a's add to this?
-      [:li
-       [:a {:href home
-            :class (when (= current home) "active")}
-        (::home props)]]
+      [:ul.nav
+        (li-nav-item
+          {:href "/home"
+           :active active
+           :display (::home props)})
+        (li-nav-item
+          {:href "/alexander-technique"
+           :active active
+           :display (::alexander-technique props)})
+        (li-nav-item
+          {:href "/faculty"
+           :active active
+           :display (::faculty props)})
+       (li-nav-item
+         {:href "/contact"
+          :active active
+          :display (::contact props)})])))
 
-      [:li
-       [:a {:href alexander
-            :class (when (= current alexander) "active")}
-        (::alexander-technique props)]]
 
-      [:li
-       [:a {:href faculty
-            :class (when (= current faculty) "active")}
-        (::faculty props)]]
-
-      [:li
-       [:a {:href contact
-            :class (when (= current contact) "active")}
-        (::contact props)]]])))
-
-(defstyles styles
-  [:.nav {:font-family "Shippori Antique B1"
+(def styles
+  [[:.nav {:font-family "Shippori Antique B1"
           :display "flex"
           :justify-content "space-around"
           :padding "20px 0 15px"
@@ -48,18 +53,20 @@
    [:li {:cursor "pointer"}
     [:a {:text-decoration "none"
          :color colors/text-black}]
-     [:a.active {:border-bottom "1px solid"}]]])
+     [:a.active {:border-bottom "1px solid"}]]]])
 
 
 (def strings
   {::home "Home"
    ::alexander-technique "Alexander Technique"
-   ::faculty "Faculty"
+   ::faculty "Teachers"
    ::contact "Contact"})
+
 
 ;;;; Controller
 
 (defn nav [props]
+  "Exported nav component"
   (-> props
       (ui/add-translated-strs strings)
       content))

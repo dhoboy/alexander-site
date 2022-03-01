@@ -8,16 +8,19 @@
 
 ;;;; View
 
+;; Screens render entire pages
+
 (defn content [props]
+  "Contact Screen content"
   (ui/html
    [:div.contact-screen
-    [:h3 "We want to hear from you!"]
-    [:div.details
-     [:p "You can reach us here -"]
-     [:ul
-      [:li "Phone: " (::phone props)]
-      [:li "Email: " (::email props)]
-      [:li "Address: " (::street props)]]]]))
+     [:h3 "We want to hear from you!"]
+     [:div.details
+       [:p "You can reach us here -"]
+       [:ul
+         [:li "Phone: " (::phone props)]
+         [:li "Email: " (::email props)]
+         [:li "Address: " (::street props)]]]]))
 
 (def strings
   {::html.doc.title.fragment "Contact"
@@ -25,18 +28,19 @@
    ::email "attcincville@gmail.com"
    ::street "1214 East Jefferson Street, Charlottesville, VA 22902"})
 
-(defstyles styles
-  [:.contact-screen
+(def styles
+  [[:.contact-screen
    [:.details {:padding-top "15px"}
     [:p {:font-weight "bold"}]
     [:ul {:list-style "initial"
           :margin "5px 0"
           :padding-left "22px"}
-    [:li {:padding-bottom "5px"}]]]])
+    [:li {:padding-bottom "5px"}]]]]])
 
 ;;;; Controller
 
 (defn handler [req]
+  "Exported Contact Screen"
   (-> req
       (screen/render content strings)
       rr/response

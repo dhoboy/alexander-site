@@ -8,7 +8,10 @@
 
 ;;;; View
 
+;; Screens render entire pages
+
 (defn content [props]
+  "Home Screen content"
   (ui/html
    [:div.home-screen
      [:h3 "About"]
@@ -47,16 +50,17 @@
    ::tuition "$525.00 monthly"})
 
 
-(defstyles styles
-  [:.home-screen
+(def styles
+  [[:.home-screen
    [:h3 {:padding-bottom "5px"}]
    [:.details {:padding-top "40px"}
     [:ul {:list-style "initial"
-           :padding-left "22px"}]]])
+           :padding-left "22px"}]]]])
 
 ;;;; Controller
 
 (defn handler [req]
+  "Exports Home Screen"
   (-> req
       (screen/render content strings)
       rr/response

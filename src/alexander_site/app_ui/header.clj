@@ -11,20 +11,23 @@
 
 ;;;; View
 
+;; Components are parts used on Screens
+
 (defn content [props]
+  "header component content"
   (ui/html
    [:h1 (::title props)]
    [:h2 (::sub-title props)]))
 
-(defstyles styles
-  [:header {:font-family "Shippori Antique B1"
+(def styles
+  [[:header {:font-family "Shippori Antique B1"
             :background-color colors/header-blue
             :color colors/black
             :box-shadow "0px 1px 2px #ccc"
             :padding "20px"
             :text-align "center"}
    [:h2 {:font-family "Dancing Script"
-         :font-size "35px"}]])
+         :font-size "35px"}]]])
 
 (def strings
   {::title "Alexander Technique Training Center"
@@ -33,8 +36,8 @@
 ;;;; Controller
 
 (defn header [props]
+  "Exports the header component"
   (-> props
       (ui/add-translated-strs strings)
       content))
 
-(println header)
