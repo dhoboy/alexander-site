@@ -29,7 +29,7 @@
 ;;;; System (Integrant)
 
 (def system-config
-  {:prod.web.adapter/jetty {:port (or (env :port) 80)
+  {:prod.web.adapter/jetty {:port (Integer. (or (env :port) 80))
                             :join? false
                             :handler (ig/ref :prod.web/handler)}
    :prod.web/handler {}})
