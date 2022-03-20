@@ -17,7 +17,7 @@
   :plugins [[lein-auto "0.1.3"]
             [lein-garden "0.3.0"]
             [lein-ring "0.12.5"]]
-  :main ^:skip-aot alexander-site
+  :main alexander-site
   :target-path "target/%s"
   :repl-options {:init-ns user}
 
@@ -34,6 +34,4 @@
                         :output-to "resources/public/css/main.g.css"
                         :pretty-print? true}}]}
 
-  :ring
-  {:handler alexander-site/handler
-   :auto-refresh? true})
+  :ring {:handler alexander-site/handler :auto-refresh? true})
