@@ -1,6 +1,7 @@
 (defproject alexander-site "220209-SNAPSHOT"
-  :description "An intriguing, fun web app to survey and qualify prospects."
+  :description "Alexander Technique School Charlottesville Homepage"
   ; :url "http://example.com/FIXME"
+  :min-lein-version "2.0.0"
   :license {:name "None (proprietary; all rights reserved)"}
   :dependencies [[buddy/buddy-auth "3.0.323"]
                  [garden "1.3.10"]
