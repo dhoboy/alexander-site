@@ -20,7 +20,7 @@
   :main alexander-site
   :target-path "target/%s"
   :repl-options {:init-ns user}
-
+  :uberjar-name "alexander-site-standalone.jar"
   :profiles {:dev {:dependencies [[integrant/repl "0.3.2"]]
                    :source-paths ["dev"]}
              :uberjar {:aot :all}}
