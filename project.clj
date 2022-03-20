@@ -13,14 +13,17 @@
                  [ring/ring-core "1.9.5"]
                  [ring/ring-defaults "0.3.3"]
                  [ring/ring-jetty-adapter "1.9.5"]
-                 [tongue "0.4.3"]]
+                 [tongue "0.4.3"]
+                 [environ "1.1.0"]]
   :plugins [[lein-auto "0.1.3"]
             [lein-garden "0.3.0"]
-            [lein-ring "0.12.5"]]
+            [lein-ring "0.12.5"]
+            [environ/environ.lein "0.3.1"]]
+  :hooks [environ.leiningen.hooks]
   :main alexander-site
   :target-path "target/%s"
   :repl-options {:init-ns user}
-  :uberjar-name "alexander-site-standalone.jar"
+  ; :uberjar-name "alexander-site-standalone.jar"
   :profiles {:dev {:dependencies [[integrant/repl "0.3.2"]]
                    :source-paths ["dev"]}
              :uberjar {:aot :all}}

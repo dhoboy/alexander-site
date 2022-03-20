@@ -8,6 +8,7 @@
    [alexander-site.strings :as strs]
    [alexander-site.ui-system.ui :as ui]
    [ring.adapter.jetty :as jetty]
+   [environ.core :refer [env]]
    [ring.middleware.defaults :refer [wrap-defaults] :as rmd]))
 
 ;;;; Top-level app handler
@@ -28,7 +29,7 @@
 ;;;; System (Integrant)
 
 (def system-config
-  {:prod.web.adapter/jetty {:port 80
+  {:prod.web.adapter/jetty {:port (or (env :port) 80)
                             :join? false
                             :handler (ig/ref :prod.web/handler)}
    :prod.web/handler {}})
