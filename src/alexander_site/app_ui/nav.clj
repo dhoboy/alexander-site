@@ -54,6 +54,8 @@
     [:a {:text-decoration "none"
          :color colors/text-black}]
      [:a.active {:border-bottom "1px solid"}]]]
+   (at-media {:min-width "600px"}
+     [:.nav {:font-size "16px"}])
    (at-media {:min-width "768px"}
      [:.nav {:justify-content "space-around"
              :font-size "24px"}])])
