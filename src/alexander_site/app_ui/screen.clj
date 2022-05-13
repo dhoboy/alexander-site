@@ -81,9 +81,16 @@
 
     ;; Containers
     [:#main {:padding "0 15px 15px"}]
-    [:#content {:height (percent 100)
-                :padding "30px 150px 0"
-                :font-size "20px"}]]))
+    [:#content {:padding-top "5px"
+                :height (percent 100)
+                :font-size "18px"}]
+
+    [:h3 {:font-size "18px"}]
+
+    (at-media {:min-width "768px"}
+     [:#content {:padding "30px 150px 0"
+                 :font-size "20px"}]
+     [:h3 {:font-size "22px"}])]))
 
 ;;; Strings
 

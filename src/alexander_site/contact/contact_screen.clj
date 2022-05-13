@@ -4,6 +4,7 @@
    [alexander-site.app-ui.screen :as screen]
    [alexander-site.ui-system.ui :as ui]
    [garden.def :refer [defstyles]]
+   [garden.stylesheet :refer [at-media]]
    [ring.util.response :as rr]))
 
 ;;;; View
@@ -16,26 +17,32 @@
    [:div.contact-screen
      [:h3 "We want to hear from you!"]
      [:div.details
-       [:p "You can reach us here -"]
-       [:ul
-         [:li "Phone: " (::phone props)]
-         [:li "Email: " (::email props)]
-         [:li "Address: " (::street props)]]]]))
+       [:div
+         [:p
+          [:span "Garnett"]
+          [:span (::garnett-email props)]]
+         [:p
+           [:span "Lydia"]
+           [:span (::lydia-email props)]]
+         [:p
+           [:span "Address"]
+           [:span (::street props)]]]]]))
 
 (def strings
   {::html.doc.title.fragment "Contact"
-   ::phone "(434) 960-8490"
-   ::email "attcincville@gmail.com"
+   ::garnett-email "garnettmellen@gmail.com"
+   ::lydia-email "lydiavonbriesen@gmail.com"
    ::street "1214 East Jefferson Street, Charlottesville, VA 22902"})
 
 (def styles
   [[:.contact-screen
    [:.details {:padding-top "15px"}
-    [:p {:font-weight "bold"}]
-    [:ul {:list-style "initial"
-          :margin "5px 0"
-          :padding-left "22px"}
-    [:li {:padding-bottom "5px"}]]]]])
+    [:p {:display "grid"
+         :grid-template-columns "1fr 3fr"
+         :padding "5px"}
+     [:span:first-child {:color "#000"}]]
+   (at-media {:min-width "992px"}
+     [:p {:grid-template-columns "1fr 5fr"}])]]])
 
 ;;;; Controller
 

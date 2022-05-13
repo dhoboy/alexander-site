@@ -47,13 +47,16 @@
 (def styles
   [[:.nav {:font-family "Shippori Antique B1"
           :display "flex"
-          :justify-content "space-around"
+          :justify-content "space-between"
           :padding "20px 0 15px"
-          :font-size "24px"}
+          :font-size "16px"}
    [:li {:cursor "pointer"}
     [:a {:text-decoration "none"
          :color colors/text-black}]
-     [:a.active {:border-bottom "1px solid"}]]]])
+     [:a.active {:border-bottom "1px solid"}]]]
+   (at-media {:min-width "768px"}
+     [:.nav {:justify-content "space-around"
+             :font-size "24px"}])])
 
 
 (def strings

@@ -24,10 +24,15 @@
             :background-color colors/header-blue
             :color colors/black
             :box-shadow "0px 1px 2px #ccc"
-            :padding "20px"
+            :padding "15px"
             :text-align "center"}
+   [:h1 {:font-size "22px"}]
    [:h2 {:font-family "Dancing Script"
-         :font-size "35px"}]]])
+         :font-size "28px"}]
+   (at-media {:min-width "768px"}
+     [:header {:padding "20px"}]
+     [:h1 {:font-size "32px"}]
+     [:h2 {:font-size "35px"}])]])
 
 (def strings
   {::title "Alexander Technique Training Center"

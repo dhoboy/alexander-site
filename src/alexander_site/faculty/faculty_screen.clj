@@ -29,18 +29,23 @@
 (def strings
   {::html.doc.title.fragment "Faculty"
    ::garnett "Garnett Mellen"
-   ::garnett-blurb (str "Garnett is an ACE Personal Trainer and teaches Yoga, "
-                       "Pilates, Qigong and American Waltz. People who strive "
-                       "for vigor, strength and robust health find her training "
-                       "sessions both enlivening, while they quiet the nervous "
-                       "system. For those who have elevated blood sugar and who "
-                       "want to avoid developing Type II Diabetes, she draws upon "
-                       "her CDC Lifestyle Coach certification to safely guide "
-                       "weight loss. In her sessions Garnett emphasizes posture "
-                       "and balance drawing upon her extensive trainings in the "
-                       "Alexander Technique.")
+   ::garnett-blurb (str "Garnett, in addition to being an Alexander Technique "
+                        "Teacher, is an ACE Personal Trainer who teaches Yoga "
+                        "and Pilates. People who strive for vigor, strength "
+                        "and robust health find her sessions enlivening, while "
+                        "they also quiet the nervous system. She graduated from "
+                        "the Alexander Technique Training Center in 2012. "
+                        "She loves plants, being outside, dancing and funky "
+                        "earrings and, of course, the Alexander Technique. ")
    ::lydia "Lydia von Briesen"
-   ::lydia-blurb "Lydia teaches Alexander and Yoga..."})
+   ::lydia-blurb (str "Lydia has been teaching the Alexander Technique for 15 "
+                      "years. She loves to use the technique in everyday life "
+                      "situations like parenting and manual labor. One of her "
+                      "favorite practices is teaching the technique as it applies "
+                      "to yoga. Her living philosophy is based on the principles "
+                      "that there is basic goodness at the core of every human, "
+                      "human bodies are perfect and sacred, and the universe is "
+                      "always on our side." )})
 
 (def styles
   [[:div.faculty-screen
