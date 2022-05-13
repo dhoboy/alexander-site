@@ -83,9 +83,9 @@
     [:#main {:padding "0 15px 15px"}]
     [:#content {:padding-top "5px"
                 :height (percent 100)
-                :font-size "18px"}]
+                :font-size "16px"}]
 
-    [:h3 {:font-size "18px"}]
+    [:h3 {:font-size "16px"}]
 
     (at-media {:min-width "768px"}
      [:#content {:padding "30px 150px 0"
