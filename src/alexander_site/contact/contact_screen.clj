@@ -38,8 +38,8 @@
   [[:.contact-screen
    [:.details {:padding-top "15px"}
     [:p {:display "grid"
-         :grid-template-columns "1fr 3fr"
-         :padding "5px"}
+         :grid-template-columns "minmax(20px, 1fr) 3fr"
+         :padding "10px 0"}
      [:span:first-child {:color "#000"}]]
    (at-media {:min-width "992px"}
      [:p {:grid-template-columns "1fr 5fr"}])]]])

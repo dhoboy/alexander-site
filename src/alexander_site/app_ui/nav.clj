@@ -49,7 +49,7 @@
           :display "flex"
           :justify-content "space-between"
           :padding "20px 0 15px"
-          :font-size "16px"}
+          :font-size "14px"}
    [:li {:cursor "pointer"}
     [:a {:text-decoration "none"
          :color colors/text-black}]
