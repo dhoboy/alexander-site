@@ -4,15 +4,12 @@
    [alexander-site.app-ui.screen :as screen]
    [alexander-site.ui-system.ui :as ui]
    [garden.def :refer [defstyles]]
+   [garden.stylesheet :refer [at-media]]
    [ring.util.response :as rr]))
 
 ;;;; View
 
 ;; Screens render entire pages
-
-;; TODO: Responsive styles, adding photos, favicon
-;; TODO: Handle the dark/light color theme stuff built in
-
 (defn content [props]
   "Faculty Screen content"
   (ui/html
@@ -50,9 +47,7 @@
 (def styles
   [[:div.faculty-screen
     [:h3 {:padding-bottom "5px"}]
-    [:.entry {:display "grid"
-              :grid-template-columns "300px 1fr"
-              :padding-bottom "75px"}
+    [:.entry {:padding-bottom "75px"}
       [:.bio-photo
         {:height "400px"
          :border-radius "4px"
@@ -60,8 +55,12 @@
          :background-position "50%"}]
       [:.garnett {:background-image "url(/s/garnett.jpeg)"}]
       [:.lydia {:background-image "url(/s/lydia.jpeg)"}]
-      [:p {:padding-left "25px"}]]]
-   ["div.faculty-screen > div:last-child" {:padding-bottom "0px"}]])
+      [:p {:padding-top "10px"}]]]
+   ["div.faculty-screen > div:last-child" {:padding-bottom "0px"}]
+   (at-media {:min-width "600px"}
+     [:.entry {:display "grid"
+               :grid-template-columns "300px 1fr"}
+      [:p {:padding-left "25px"}]])])
 
 ;;;; Controller
 

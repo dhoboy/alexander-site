@@ -35,6 +35,10 @@
     [:meta {:name :viewport
             :content "width=device-width, initial-scale=1"}]
     [:title (:html.doc/title props)]
+    [:link {:rel "apple-touch-icon" :sizes "180x180" :href "/s/apple-touch-icon.png"}]
+    [:link {:rel "icon" :type "image/png" :sizes "32x32" :href "/s/favicon-32x32.png"}]
+    [:link {:rel "icon" :type "image/png" :sizes "16x16" :href "/s/favicon-16x16.png"}]
+    [:link {:rel "manifest" :href "/s/site.webmanifest"}]
     [:script {:src "https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"}]
     [:script
      "
