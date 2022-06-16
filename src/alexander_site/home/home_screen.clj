@@ -23,7 +23,14 @@
          [:li (::classes props)]
          [:li (::time props)]
          [:li (::months props)]
-         [:li (::tuition props)]]]]))
+         [:li (::tuition props)]]]
+     [:div.details
+       [:h3 "Training Course Details"]
+       [:ul
+         [:li (::lydia props)]
+         [:li (::garnett props)]
+         [:li (::chris props)]
+         [:li (::rahimah props)]]]]))
 
 (def strings
   {::html.doc.title.fragment "Home"
@@ -47,7 +54,11 @@
    ::classes "Classes meet Monday - Thursday"
    ::time "9:15 am - 12:45 pm"
    ::months "September - May"
-   ::tuition "$525.00 monthly"})
+   ::tuition "$525.00 monthly"
+   ::lydia "Lydia Von Briesen - Acting Temporary Director (in process of becoming full director)"
+   ::garnett "Garnett Mellen - Acting Temporary Director (in process of becoming full director)"
+   ::chris "Chris Dourif - Director in Abstentia"
+   ::rahimah "Rahimah Wright - Director in Abstentia" })
 
 
 (def styles

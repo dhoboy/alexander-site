@@ -32,7 +32,7 @@
   {::html.doc.title.fragment "Contact"
    ::garnett-email "garnettmellen@gmail.com"
    ::lydia-email "lydiavonbriesen@gmail.com"
-   ::street "1214 East Jefferson Street, Charlottesville, VA 22902"})
+   ::street "1107 Calhoun Street Charlottesville, VA 22901"})
 
 (def styles
   [[:.contact-screen
