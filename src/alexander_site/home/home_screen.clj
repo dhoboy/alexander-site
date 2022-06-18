@@ -55,7 +55,7 @@
    ::time "9:15 am - 12:45 pm"
    ::months "September - May"
    ::tuition "$525.00 monthly"
-   ::lydia "Lydia Von Briesen - Acting Temporary Director (in process of becoming full director)"
+   ::lydia "Lydia von Briesen - Acting Temporary Director (in process of becoming full director)"
    ::garnett "Garnett Mellen - Acting Temporary Director (in process of becoming full director)"
    ::chris "Chris Dourif - Director in Abstentia"
    ::rahimah "Rahimah Wright - Director in Abstentia" })
